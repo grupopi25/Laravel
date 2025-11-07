@@ -49,6 +49,8 @@ public function logout(Request $request){ // FAZ O USUÁRIO DESLOGAR DA CONTA
 }
 
 public function registro(Request $request){  // FAZ A VALIDAÇÃO DOS CAMPOS
+
+   
 $request->validate([
     'name' => 'required',
     'email' => 'required|email',
@@ -59,8 +61,12 @@ $request->validate([
                'name' => $request->name, 
                'email' => $request->email, 
                'password' => Hash::make($request->password), 
-        ],response::HTTP_CREATED
-    )
+        ]
+          
+        )
+]);
+return response()->json([
+    'tste'
 ]);
 }
 
